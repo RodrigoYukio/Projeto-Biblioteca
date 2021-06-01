@@ -359,6 +359,7 @@ public class AdmLivro extends javax.swing.JFrame {
 
             jButtonSalvar.setEnabled(false);
             jButtonCancelar.setEnabled(false);
+            preecherTabelaLivro("select *from livro order by cod_livro");
        
         }
     }//GEN-LAST:event_jButtonSalvarActionPerformed

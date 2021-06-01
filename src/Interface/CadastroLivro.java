@@ -119,6 +119,11 @@ public class CadastroLivro extends javax.swing.JFrame {
         jLabel8.setText("Autor:");
 
         jFormattedTextFieldTitulo.setEnabled(false);
+        jFormattedTextFieldTitulo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jFormattedTextFieldTituloActionPerformed(evt);
+            }
+        });
 
         jFormattedTextFieldISBN.setEnabled(false);
 
@@ -504,6 +509,10 @@ public class CadastroLivro extends javax.swing.JFrame {
     private void jFormattedTextFieldAreaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jFormattedTextFieldAreaActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jFormattedTextFieldAreaActionPerformed
+
+    private void jFormattedTextFieldTituloActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jFormattedTextFieldTituloActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jFormattedTextFieldTituloActionPerformed
 
     /**
      * @param args the command line arguments

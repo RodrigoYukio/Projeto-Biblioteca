@@ -57,14 +57,10 @@ public class EmprestimoLivro extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTableAlunos = new javax.swing.JTable();
         jButtonFinalizar = new javax.swing.JButton();
         jButtonCancelar = new javax.swing.JButton();
-        jDateEmprestimo = new com.toedter.calendar.JDateChooser();
-        jDatePrevista = new com.toedter.calendar.JDateChooser();
         jComboBoxLivro = new javax.swing.JComboBox<>();
         jTextFieldAluno = new javax.swing.JTextField();
         jButtonBuscar = new javax.swing.JButton();
@@ -77,10 +73,6 @@ public class EmprestimoLivro extends javax.swing.JFrame {
         jLabel2.setText("Livro:");
 
         jLabel3.setText("Aluno:");
-
-        jLabel4.setText("Data Emprestimo:");
-
-        jLabel5.setText("Data Prevista devolução:");
 
         jTableAlunos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -108,19 +100,21 @@ public class EmprestimoLivro extends javax.swing.JFrame {
             }
         });
 
-        jButtonCancelar.setText("Cancelar Agendamento");
+        jButtonCancelar.setText("Cancelar Emprestimo");
         jButtonCancelar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonCancelarActionPerformed(evt);
             }
         });
 
-        jDateEmprestimo.setEnabled(false);
-
-        jDatePrevista.setEnabled(false);
-
         jComboBoxLivro.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         jComboBoxLivro.setEnabled(false);
+
+        jTextFieldAluno.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextFieldAlunoActionPerformed(evt);
+            }
+        });
 
         jButtonBuscar.setText("Buscar");
         jButtonBuscar.addActionListener(new java.awt.event.ActionListener() {
@@ -134,34 +128,28 @@ public class EmprestimoLivro extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(54, 54, 54)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(jPanel1Layout.createSequentialGroup()
-                            .addGap(2, 2, 2)
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                            .addGap(56, 56, 56)
                             .addComponent(jLabel3)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                             .addComponent(jTextFieldAluno, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                            .addComponent(jButtonBuscar))
-                        .addGroup(jPanel1Layout.createSequentialGroup()
-                            .addComponent(jLabel4)
+                            .addComponent(jButtonBuscar)
+                            .addGap(210, 210, 210))
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                            .addGap(54, 54, 54)
+                            .addComponent(jLabel2)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                            .addComponent(jDateEmprestimo, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(jPanel1Layout.createSequentialGroup()
-                            .addComponent(jLabel5)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(jDatePrevista, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(jPanel1Layout.createSequentialGroup()
-                            .addComponent(jButtonFinalizar)
-                            .addGap(42, 42, 42)
-                            .addComponent(jButtonCancelar)))
+                            .addComponent(jComboBoxLivro, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(275, 275, 275)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel2)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jComboBoxLivro, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(181, 181, 181)))
-                .addGap(94, 94, 94)
+                        .addGap(38, 38, 38)
+                        .addComponent(jButtonFinalizar)
+                        .addGap(37, 37, 37)
+                        .addComponent(jButtonCancelar)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(341, 341, 341))
         );
@@ -180,15 +168,7 @@ public class EmprestimoLivro extends javax.swing.JFrame {
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jComboBoxLivro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel2))
-                        .addGap(51, 51, 51)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel4)
-                            .addComponent(jDateEmprestimo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(47, 47, 47)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel5)
-                            .addComponent(jDatePrevista, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(30, 30, 30)
+                        .addGap(54, 54, 54)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jButtonFinalizar)
                             .addComponent(jButtonCancelar))))
@@ -243,8 +223,7 @@ public class EmprestimoLivro extends javax.swing.JFrame {
         }
            conex.desconecta();  
         jComboBoxLivro.setEnabled(true);
-        jDateEmprestimo.setEnabled(true);
-        jDatePrevista.setEnabled(true);
+  
         jButtonCancelar.setEnabled(true);
         jButtonBuscar.setEnabled(true);
         jButtonFinalizar.setEnabled(true);
@@ -262,8 +241,6 @@ public class EmprestimoLivro extends javax.swing.JFrame {
         
         dispose();
         jTextFieldAluno.setText("");
-        jDateEmprestimo.setDateFormatString("00-00-0000");
-        jDatePrevista.setDateFormatString("00-00-0000");
         jComboBoxLivro.setSelectedItem("");
         
     }//GEN-LAST:event_jButtonFinalizarActionPerformed
@@ -271,6 +248,10 @@ public class EmprestimoLivro extends javax.swing.JFrame {
     private void jButtonCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCancelarActionPerformed
         dispose();
     }//GEN-LAST:event_jButtonCancelarActionPerformed
+
+    private void jTextFieldAlunoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldAlunoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextFieldAlunoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -354,13 +335,9 @@ public class EmprestimoLivro extends javax.swing.JFrame {
     private javax.swing.JButton jButtonCancelar;
     private javax.swing.JButton jButtonFinalizar;
     private javax.swing.JComboBox<String> jComboBoxLivro;
-    private com.toedter.calendar.JDateChooser jDateEmprestimo;
-    private com.toedter.calendar.JDateChooser jDatePrevista;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTableAlunos;

@@ -33,11 +33,10 @@ public class DaoSituacao {
         conex.conexao();
         
         try {
-            PreparedStatement pst = conex.con.prepareStatement("insert into emprestimo(emp_codaluno,emp_codlivro,emp_dataemp,emp_datadev,emp_situacao)values(?,?,?,?,?)");
+            PreparedStatement pst = conex.con.prepareStatement("insert into emprestimo(emp_codaluno,emp_codlivro,emp_dataempres,emp_situacao)values(?,?,?,?)");
             pst.setInt(1, codAluno);
             pst.setInt(2, codLivro);
-            pst.setDate(3, situacao.getData1());
-            pst.setDate(4, situacao.getData2());
+            pst.setString(6,situacao.getStatus());
             pst.setString(5, situacao.getStatus());
             pst.execute();
             JOptionPane.showConfirmDialog(null, "situacao salva");

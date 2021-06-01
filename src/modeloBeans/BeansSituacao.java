@@ -66,4 +66,8 @@ public class BeansSituacao {
     private Date data1;
     private Date data2;
     private String status;
+
+    public Date getData1(String emp_dataemp) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }
